@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Aplicación WebRTC con servidor de señalización Node.js</title>
+</head>
+<body>
+
+	<div>
+		<h1 id="h1">SERVICIO DE VIDEOLLAMADA</h1>
+   </div>
+
+<div>
+	<video id="localVideo" muted autoplay></video>
+</div>
+
+<div>
+	<video id="remoteVideo" autoplay></video>
+</div>
+
+<div id="mensajeria">
+	<textarea rows="4" cols="30" id="dataChannelSend" disabled
+	placeholder="This will be enabled once the data channel is up..."></textarea>
+	<br>
+	<button id="sendButton" disabled>Enviar</button>
+	<br>
+	<textarea rows="4" cols="30" id="dataChannelReceive" disabled></textarea>
+</div>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='js/completeNodeClientWithDataChannel.js'></script>
+
+<style>
+
+
+#localVideo{
+	bottom: 5%;
+	left: 80%;
+	position: fixed;
+	max-width: 30%;
+	max-height: 25%;
+	width: auto;
+	height: auto;
+	z-index: -50;
+	border: #212727;
+	transform: scaleX(-1);
+	border-radius: 10%;
+	border-color: black;
+
+
+}
+
+#remoteVideo{
+	top: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+	bottom: 0;
+	position: fixed;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	transform: scaleX(-1);
+}
+
+#sendButton{
+	background-color: rgb(91, 141, 243);
+	color: #ffffff;
+	font-family: 'Open Sans';
+	border-radius: 5px;
+}
+
+#mensajeria{
+	bottom: 5%;
+	left: 5;
+	position: fixed;
+	max-width: 20%;
+	max-height: 45%;
+	width: auto;
+	height: auto;
+	z-index: -50;
+	border: #212727;
+}
+
+#h1{
+	font-size: 25px;
+	font-style: normal;
+	text-align: center;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	background-color: rgb(127, 189, 255);
+	color: aliceblue;
+	font-weight: 300;
+	max-width: 25%;
+	border: #212727;
+	border-style: double;
+	position: fixed;
+	border-radius: 10px;
+}
+
+
+</style>
+</body>
+</html>
+
